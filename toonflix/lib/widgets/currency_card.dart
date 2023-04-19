@@ -7,7 +7,9 @@ class CurrencyCard extends StatelessWidget {
 
   final String name, code, amount;
   final IconData icon;
-  final Bool isInverted;
+  final bool isInverted;
+
+  final _blackColor = const Color(0xFF1F2123);
 
   const CurrencyCard({
     super.key,
@@ -24,7 +26,7 @@ class CurrencyCard extends StatelessWidget {
     return Container(
         clipBehavior: Clip.hardEdge,
         decoration: BoxDecoration(
-          color: isInverted ? Colors.white : const Color(0xFF1F2123),
+          color: isInverted ? Colors.white : _blackColor,
           borderRadius: BorderRadius.circular(25),
         ),
         child: Padding(
@@ -36,8 +38,8 @@ class CurrencyCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(name,
-                    style: const TextStyle(
-                      color: isInverted ? Colors.black : Colors.white,
+                    style: TextStyle(
+                      color: isInverted ? _blackColor : Colors.white,
                       fontSize: 32,
                       fontWeight: FontWeight.w600,
                     ),
@@ -46,8 +48,8 @@ class CurrencyCard extends StatelessWidget {
                   Row(
                     children: [
                       Text(amount,
-                        style: const TextStyle(
-                          color: Colors.white,
+                        style: TextStyle(
+                          color: isInverted ? _blackColor : Colors.white,
                           fontSize: 20,
                         ),
                       ),
@@ -68,7 +70,7 @@ class CurrencyCard extends StatelessWidget {
                   offset: const Offset(0, 11),
                   child: Icon(
                     icon,
-                    color: Colors.white,
+                    color: isInverted ? _blackColor : Colors.white,
                     size: 88,
                   ),
                 ),
